@@ -127,15 +127,17 @@ initHeroSlideshow();
   }, { passive: true });
 })();
 
-/* ── ASPECT RATIO FROM DIMENSIONS ── */
-function thumbRatio(dim) {
+/* ── GRID SPAN FROM ARTWORK DIMENSIONS ── */
+function gridSpan(dim) {
   const m = dim.match(/(\d+(?:\.\d+)?)[×xX](\d+(?:\.\d+)?)/);
-  if (!m) return '3 / 4';
-  const r = parseFloat(m[1]) / parseFloat(m[2]);
-  if (r < 0.65)  return '2 / 3';   // tall portrait  (e.g. 35×178, 130×245)
-  if (r < 0.92)  return '3 / 4';   // standard portrait
-  if (r < 1.15)  return '1 / 1';   // square-ish     (e.g. 30×30, 197×192)
-  return '4 / 3';                   // landscape      (e.g. 179×60, 30×24)
+  if (!m) return { col: 2, row: 2 };          // Variable → instalación grande
+  const w = parseFloat(m[1]), h = parseFloat(m[2]);
+  const r = w / h;
+  const area = w * h;
+  if (area > 50000) return { col: 2, row: 2 }; // obras muy grandes → 2×2
+  if (r > 1.8)      return { col: 2, row: 1 }; // panorámicas → 2 cols
+  if (r < 0.6)      return { col: 1, row: 2 }; // muy verticales → 2 rows
+  return { col: 1, row: 1 };
 }
 
 /* ── BUILD A SINGLE OBRA ITEM ── */
@@ -146,10 +148,13 @@ function makeItem(obra) {
   a.dataset.id = obra.id;
   a.setAttribute('aria-label', obra.title);
 
+  const span = gridSpan(obra.dim);
+  if (span.col > 1) a.style.gridColumn = `span ${span.col}`;
+  if (span.row > 1) a.style.gridRow    = `span ${span.row}`;
+
   const div = document.createElement('div');
   div.className = 'obra-thumb';
   div.style.backgroundColor = obra.bg || '#f0f0f0';
-  div.style.aspectRatio = thumbRatio(obra.dim);
 
   if (obra.img) {
     const img = document.createElement('img');
