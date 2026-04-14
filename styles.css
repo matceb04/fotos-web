@@ -146,10 +146,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .serie-grid {
-  column-count: 2;
+  column-count: 1;
   column-gap: 4px;
 }
 
+@media (min-width: 600px)  { .serie-grid { column-count: 2; } }
 @media (min-width: 768px)  { .serie-grid { column-count: 3; } }
 @media (min-width: 1280px) { .serie-grid { column-count: 4; } }
 @media (min-width: 1800px) { .serie-grid { column-count: 5; } }
