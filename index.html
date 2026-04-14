@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miguel Costemalle Carrandi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header" id="main-header">
+    <a href="#" class="header-name">Miguel Costemalle Carrandi</a>
+    <nav class="header-nav">
+      <a href="#obra">obra</a>
+      <a href="#artista">artista</a>
+      <a href="#contacto">contacto</a>
+    </nav>
+  </header>
+
+  <div class="modal-overlay" id="modal">
+    <button class="modal-close" id="modal-close">cerrar ×</button>
+    <div class="modal-inner">
+      <div class="modal-img-wrap">
+        <div class="modal-img-placeholder" id="modal-placeholder"></div>
+        <div class="modal-img-nav" id="modal-img-nav" style="display:none">
+          <button class="modal-img-btn" id="modal-img-prev">&#8249;</button>
+          <span class="modal-img-counter" id="modal-img-counter"></span>
+          <button class="modal-img-btn" id="modal-img-next">&#8250;</button>
+        </div>
+      </div>
+      <div class="modal-info">
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-meta" id="modal-meta"></div>
+        <p class="modal-serie-def" id="modal-serie-def"></p>
+        <p class="modal-price" id="modal-price"></p>
+        <p class="modal-nota" id="modal-nota"></p>
+        <div class="modal-avail" id="modal-avail"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="hero" id="hero">
+    <div class="hero-bg hero-bg-1" id="hero-bg-1"></div>
+    <div class="hero-bg hero-bg-2" id="hero-bg-2"></div>
+    
+    <div class="hero-overlay"></div>
+    <h1 class="hero-title">MIGUEL<br>COSTEMALLE<br>CARRANDI</h1>
+  </main>
+
+  <section class="list-section" id="obra">
+    <div id="obra-series"></div>
+  </section>
+
+  <section class="artista-section" id="artista">
+    <div class="artista-left">
+      <p class="artista-role">Artista visual, escritor y escultor</p>
+      <h2 class="artista-name">Miguel<br>Costemalle<br>Carrandi</h2>
+      <p class="artista-bio">Miguel Costemalle Carrandi es un artista visual y escritor mexicano cuya práctica se desarrolla entre México y Europa. Desde temprana edad exploró distintas disciplinas tales como la literatura, fotografía, música y pintura, movido más por la necesidad de expresar emociones que por una intención profesional. Con el tiempo, encontró su voz al unir la palabra y la imagen, haciendo de la literatura y el arte un solo lenguaje.</p>
+      <br>
+      <p class="artista-bio">Su trabajo nace de una mirada romántica y poética que dialoga con lo contemporáneo sin perder carga emocional. Convencido de que el valor sentimental se ha diluido en muchas prácticas actuales, integra texto en sus pinturas como un gesto de resistencia: un recordatorio de cómo se siente.</p>
+      <br>
+      <p class="artista-bio">En su desarrollo reciente, su práctica ha evolucionado hacia una exploración más amplia de la materialidad y el espacio, incorporando escultura e instalación. Ha trabajado con materiales como acero, bronce y superficies intervenidas, llevando su lenguaje a formatos de mayor escala y dimensión física.</p>
+      <br>
+      <p class="artista-bio">Paralelamente, ha consolidado una presencia activa en contextos expositivos y colaborativos, construyendo un cuerpo de obra que mantiene coherencia entre lo íntimo y lo estructural. Actualmente, su trabajo se orienta hacia la expansión de su lenguaje visual y literario, con interés en proyectos de mayor alcance internacional, sin desprenderse de su eje central: la emoción como materia.</p>
+    </div>
+    <div class="artista-right">
+      <div class="artista-block">
+        <p class="artista-block-title">Formación</p>
+        <p>B.A. in Visual Arts and Painting<br>NABA — Nuova Accademia di Belle Arti, Milán</p>
+      </div>
+      <div class="artista-block">
+        <p class="artista-block-title">Especialidad</p>
+        <p>Pintura, instalación y escultura en acero oxidado, cemento, lino y madera.</p>
+      </div>
+      <div class="artista-block">
+        <p class="artista-block-title">Líneas de investigación</p>
+        <p>Color, materia, memoria y deseo.</p>
+      </div>
+      <div class="artista-block">
+        <p class="artista-block-title">Exposiciones recientes</p>
+        <ul>
+          <li>El Arte del Gran Premio, Ciudad de México (2025)</li>
+          <li>Exposición individual, Ciudad de México (2024)</li>
+          <li>Exposición individual, Milán (2024)</li>
+        </ul>
+      </div>
+      <div class="artista-block">
+        <p class="artista-block-title">Idiomas</p>
+        <p>Español, inglés, italiano, francés.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-col">
+      <p class="footer-col-title">Contacto</p>
+      <a href="mailto:mikecostemalle@gmail.com">mikecostemalle@gmail.com</a>
+      <a href="tel:+525527554122">+52 55 2755 4122</a>
+      <a href="tel:+393513689894">+39 351 3689894</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Ubicación</p>
+      <p>Ciudad de México / Milán</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Redes</p>
+      <a href="https://instagram.com/costemallecarrandi" target="_blank" rel="noopener">@costemallecarrandi</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Miguel Costemalle Carrandi</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
