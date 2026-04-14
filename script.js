@@ -127,19 +127,6 @@ initHeroSlideshow();
   }, { passive: true });
 })();
 
-/* ── GRID SPAN FROM ARTWORK DIMENSIONS ── */
-function gridSpan(dim) {
-  const m = dim.match(/(\d+(?:\.\d+)?)[×xX](\d+(?:\.\d+)?)/);
-  if (!m) return { col: 2, row: 2 };          // Variable → instalación grande
-  const w = parseFloat(m[1]), h = parseFloat(m[2]);
-  const r = w / h;
-  const area = w * h;
-  if (area > 50000) return { col: 2, row: 2 }; // obras muy grandes → 2×2
-  if (r > 1.8)      return { col: 2, row: 1 }; // panorámicas → 2 cols
-  if (r < 0.6)      return { col: 1, row: 2 }; // muy verticales → 2 rows
-  return { col: 1, row: 1 };
-}
-
 /* ── BUILD A SINGLE OBRA ITEM ── */
 function makeItem(obra) {
   const a = document.createElement('a');
@@ -147,10 +134,6 @@ function makeItem(obra) {
   a.className = 'obra-item';
   a.dataset.id = obra.id;
   a.setAttribute('aria-label', obra.title);
-
-  const span = gridSpan(obra.dim);
-  if (span.col > 1) a.style.gridColumn = `span ${span.col}`;
-  if (span.row > 1) a.style.gridRow    = `span ${span.row}`;
 
   const div = document.createElement('div');
   div.className = 'obra-thumb';
