@@ -22,11 +22,11 @@ const IMG = f => f;
 
 /* ── CATÁLOGO ──────────────────────────────────────────────── */
 const OBRAS = [
-  { id: 'ekta-calaca-27', title: 'EKTA CALACA 27', dim: '35×178 cm', tecnica: 'Óleo, acuarelas, plumones de acrílico, pasteles de óleo y pintura acrílica sobre lienzo', year: '2023', price: null, avail: 'red', bg: '#1a2a4a', serie: 'La caída al bailar de las calacas', img: IMG('EKTA CALACA 27.jpg') },
   { id: 'fer-calaca-24', title: '"FER" CALACA 24', dim: '179×60 cm', tecnica: 'Óleo, acuarelas, plumones de acrílico y pintura acrílica sobre lino', year: '2023', price: null, avail: 'red', bg: '#c8303a', serie: 'La caída al bailar de las calacas', img: IMG('FER CALACA 24.jpg') },
   { id: 'calacazul-2-olvera', title: 'CALACAZUL 2 "OLVERA"', dim: '120×150 cm', tecnica: 'Acrílico y pasteles de óleo sobre lino', year: '2024', price: null, avail: 'red', bg: '#c8303a', serie: 'La caída al bailar de las calacas', img: IMG('CALACAZUL 2 OLVERA.jpg') },
   { id: 'mural-ekta-calaca-25', title: 'MURAL "EKTA" CALACA 25', dim: '220×345 cm', tecnica: 'Plumones sobre papel, pintura para pared, plumones acrílicos, pasteles de óleo y pintura acrílica sobre muro', year: '2024', price: null, avail: 'red', bg: '#8bc4d8', serie: 'La caída al bailar de las calacas', img: IMG('MURAL EKTA CALACA 25.jpg') },
   { id: 'ekta-4-calaca-26', title: '"EKTA 4" CALACA 26', dim: '155×80 cm', tecnica: 'Óleo, acuarelas, arena, plumones de acrílico y pintura acrílica sobre lino', year: '2024', price: null, avail: 'red', bg: '#78b0d0', serie: 'La caída al bailar de las calacas', img: IMG('EKTA 4 CALACA 26.jpg') },
+  { id: 'ekta-calaca-27', title: 'EKTA CALACA 27', dim: '35×178 cm', tecnica: 'Óleo, acuarelas, plumones de acrílico, pasteles de óleo y pintura acrílica sobre lienzo', year: '2023', price: null, avail: 'red', bg: '#1a2a4a', serie: 'La caída al bailar de las calacas', img: IMG('EKTA CALACA 27.jpg') },
   { id: 'lou', title: '"LOU"', dim: '200×300 cm', tecnica: 'Acrílico y óleo sobre lino', year: '2024', price: '170,000 MXN', avail: 'green', bg: '#1a2060', serie: null, img: IMG('LOU.jpg') },
   { id: '7-en-guerra', title: '"7 EN GUERRA"', dim: '216×250 cm', tecnica: 'Acrílico y óleo sobre lino', year: '2024', price: null, avail: 'red', bg: '#f0c020', serie: null, img: IMG('7 EN GUERRA.jpg') },
   { id: 'me-das-mi-domingo', title: '"¿ME DAS MI DOMINGO?1"', dim: '197×192 cm', tecnica: 'Grabado', year: '2026', price: null, avail: 'yellow', bg: '#8b1a20', serie: null, img: IMG('ME DAS MI DOMINGO 1.jpg') },
