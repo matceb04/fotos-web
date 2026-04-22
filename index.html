@@ -17,40 +17,142 @@
     </nav>
   </header>
 
-  <div class="modal-overlay" id="modal">
-    <button class="modal-close" id="modal-close">cerrar ×</button>
-    <div class="modal-inner">
-      <div class="modal-img-wrap">
-        <div class="modal-img-placeholder" id="modal-placeholder"></div>
-        <div class="modal-img-nav" id="modal-img-nav" style="display:none">
-          <button class="modal-img-btn" id="modal-img-prev">&#8249;</button>
-          <span class="modal-img-counter" id="modal-img-counter"></span>
-          <button class="modal-img-btn" id="modal-img-next">&#8250;</button>
+  <!-- ── OBRA ─────────────────────────────────────────────── -->
+  <section class="obra-section" id="obra">
+
+    <!-- Controls bar (sticky) -->
+    <div class="obra-controls">
+
+      <!-- Category tabs -->
+      <nav class="cat-nav" id="cat-nav">
+        <button class="cat-btn active" data-cat="all">Todo</button>
+        <button class="cat-btn" data-cat="pintura">Pinturas</button>
+        <button class="cat-btn" data-cat="dibujo">Dibujo</button>
+        <button class="cat-btn" data-cat="grabado">Grabado</button>
+        <button class="cat-btn" data-cat="escultura">Escultura</button>
+      </nav>
+
+      <!-- Right: availability filter + view toggle (desktop) -->
+      <div class="obra-controls-right">
+        <div class="avail-filter" id="avail-filter">
+          <button class="avail-btn active" data-avail="all">Todos</button>
+          <button class="avail-btn" data-avail="green">
+            <span class="avail-btn-dot dot-green"></span>Disponible
+          </button>
+          <button class="avail-btn" data-avail="yellow">
+            <span class="avail-btn-dot dot-yellow"></span>Para exhibir
+          </button>
+          <button class="avail-btn" data-avail="red">
+            <span class="avail-btn-dot dot-red"></span>No disponible
+          </button>
+        </div>
+        <div class="view-toggle" id="view-toggle">
+          <button class="view-btn" data-view="slide" title="Vista individual">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="2" width="12" height="10" rx="0.5" fill="currentColor"/>
+            </svg>
+          </button>
+          <button class="view-btn active" data-view="grid" title="Vista en cuadrícula">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="5.5" height="5.5" fill="currentColor"/>
+              <rect x="7.5" y="1" width="5.5" height="5.5" fill="currentColor"/>
+              <rect x="1" y="7.5" width="5.5" height="5.5" fill="currentColor"/>
+              <rect x="7.5" y="7.5" width="5.5" height="5.5" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="modal-info">
-        <h2 class="modal-title" id="modal-title"></h2>
-        <div class="modal-meta" id="modal-meta"></div>
-        <p class="modal-serie-def" id="modal-serie-def"></p>
-        <p class="modal-price" id="modal-price"></p>
-        <p class="modal-nota" id="modal-nota"></p>
-        <div class="modal-avail" id="modal-avail"></div>
+
+      <!-- Mobile filter toggle button -->
+      <button class="mobile-filter-btn" id="mobile-filter-btn" aria-label="Filtros">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="1" y1="4" x2="14" y2="4" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="1" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="1" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="5" cy="4" r="1.8" fill="white" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="10" cy="8" r="1.8" fill="white" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="5" cy="12" r="1.8" fill="white" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </button>
+
+    </div><!-- /obra-controls -->
+
+    <!-- Mobile secondary menu -->
+    <div class="controls-secondary" id="controls-secondary">
+      <div class="avail-filter" id="avail-filter-mobile">
+        <button class="avail-btn active" data-avail="all">Todos</button>
+        <button class="avail-btn" data-avail="green">
+          <span class="avail-btn-dot dot-green"></span>Disponible
+        </button>
+        <button class="avail-btn" data-avail="yellow">
+          <span class="avail-btn-dot dot-yellow"></span>Para exhibir
+        </button>
+        <button class="avail-btn" data-avail="red">
+          <span class="avail-btn-dot dot-red"></span>No disponible
+        </button>
+      </div>
+      <div class="view-toggle" id="view-toggle-mobile">
+        <button class="view-btn" data-view="slide" title="Vista individual">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="12" height="10" rx="0.5" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="view-btn active" data-view="grid" title="Vista en cuadrícula">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="5.5" height="5.5" fill="currentColor"/>
+            <rect x="7.5" y="1" width="5.5" height="5.5" fill="currentColor"/>
+            <rect x="1" y="7.5" width="5.5" height="5.5" fill="currentColor"/>
+            <rect x="7.5" y="7.5" width="5.5" height="5.5" fill="currentColor"/>
+          </svg>
+        </button>
       </div>
     </div>
-  </div>
 
-  <main class="hero" id="hero">
-    <div class="hero-bg hero-bg-1" id="hero-bg-1"></div>
-    <div class="hero-bg hero-bg-2" id="hero-bg-2"></div>
-    
-    <div class="hero-overlay"></div>
-    <h1 class="hero-title">MIGUEL<br>COSTEMALLE<br>CARRANDI</h1>
-  </main>
+    <!-- ── SLIDESHOW VIEW ─────────────────────────────────── -->
+    <div class="slide-view" id="slide-view">
 
-  <section class="list-section" id="obra">
-    <div id="obra-series"></div>
-  </section>
+      <!-- Image area -->
+      <div class="slide-area">
+        <div class="slide-img-wrap" id="slide-img-wrap"></div>
 
+        <!-- Sub-image nav (for multi-image obras) -->
+        <div class="slide-sub-nav" id="slide-sub-nav" style="display:none">
+          <button class="slide-sub-btn" id="slide-sub-prev">&#8249;</button>
+          <span class="slide-sub-counter" id="slide-sub-counter"></span>
+          <button class="slide-sub-btn" id="slide-sub-next">&#8250;</button>
+        </div>
+
+        <!-- Obra navigation arrows -->
+        <button class="slide-arrow slide-prev-obra" id="slide-prev-obra" aria-label="Obra anterior">&#8592;</button>
+        <button class="slide-arrow slide-next-obra" id="slide-next-obra" aria-label="Obra siguiente">&#8594;</button>
+      </div>
+
+      <!-- Info panel -->
+      <div class="slide-info" id="slide-info">
+        <div class="slide-counter" id="slide-counter"></div>
+        <h2 class="slide-title" id="slide-title"></h2>
+        <div class="slide-meta" id="slide-meta"></div>
+        <p class="slide-def" id="slide-def"></p>
+        <p class="slide-price" id="slide-price"></p>
+        <p class="slide-nota" id="slide-nota"></p>
+        <div class="slide-avail" id="slide-avail"></div>
+      </div>
+
+    </div><!-- /slide-view -->
+
+    <!-- ── GRID VIEW ──────────────────────────────────────── -->
+    <div class="grid-view" id="grid-view" style="display:none">
+      <div class="obra-grid" id="obra-grid"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="obra-empty" id="obra-empty" style="display:none">
+      <p>No hay obras en esta selección.</p>
+    </div>
+
+  </section><!-- /obra-section -->
+
+  <!-- ── ARTISTA ────────────────────────────────────────── -->
   <section class="artista-section" id="artista">
     <div class="artista-left">
       <p class="artista-role">Artista visual, escritor y escultor</p>
@@ -91,6 +193,7 @@
     </div>
   </section>
 
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
   <footer class="footer" id="contacto">
     <div class="footer-col">
       <p class="footer-col-title">Contacto</p>

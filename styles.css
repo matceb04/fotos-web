@@ -8,22 +8,22 @@
 }
 
 :root {
-  --header-h: 60px;
-  --ink: #111;
-  --muted: #999;
-  --border: #ebebeb;
-  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --grid-gap: 16px;
+  --header-h:   60px;
+  --controls-h: 52px;
+  --ink:    #111;
+  --muted:  #999;
+  --border: #e8e8e8;
+  --font:   'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background: #ffffff;
+  background: #fff;
 }
 
 body {
   font-family: var(--font);
-  background: #ffffff;
+  background: #fff;
   color: var(--ink);
   font-size: 12px;
   font-weight: 300;
@@ -44,23 +44,16 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 200;
   border-bottom: 1px solid var(--border);
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.header.visible {
-  transform: translateY(0);
 }
 
 .header-name {
-  font-family: var(--font);
-  font-size: 12px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -75,239 +68,331 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
-  transition: color 0.3s ease;
+  transition: color 0.25s;
   font-weight: 500;
 }
 
 .header-nav a:hover { color: var(--ink); }
 
 /* ============================================================
-   HERO 
+   OBRA — CONTROLS BAR
    ============================================================ */
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: #111;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  transition: opacity 2s ease-in-out; /* Transición suave entre imágenes */
-}
-
-/* La segunda capa inicia transparente */
-.hero-bg-2 {
-  opacity: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 2;
-}
-
-.hero-title {
-  position: absolute;
-  bottom: 48px;
-  left: 48px;
-  z-index: 3;
-  color: #ffffff;
-  font-size: clamp(32px, 6vw, 72px);
-  letter-spacing: 0.05em;
-  text-align: left;
-  font-weight: 800; /* Texto en negritas fuerte */
-  text-transform: uppercase;
-  line-height: 1.05;
-  text-shadow: none; /* Sombra intensa para que siempre se lea */
-  margin: 0;
-}
-
-/* ============================================================
-   OBRA — SERIES SECTIONS + MASONRY GRID
-   ============================================================ */
-.list-section {
-  background: #ffffff;
-  padding: 80px var(--grid-gap);
-  max-width: 2000px;
-  margin: 0 auto;
-}
-
-.serie-section {
-  margin-bottom: 4px;
-}
-
-.serie-grid {
-  column-count: 1;
-  column-gap: 4px;
-}
-
-@media (min-width: 600px)  { .serie-grid { column-count: 2; } }
-@media (min-width: 768px)  { .serie-grid { column-count: 3; } }
-@media (min-width: 1280px) { .serie-grid { column-count: 4; } }
-@media (min-width: 1800px) { .serie-grid { column-count: 5; } }
-
-.obra-item {
-  display: block;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  margin-bottom: 4px;
-}
-
-.obra-thumb {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  background-color: #fafafa;
-}
-
-.obra-thumb img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s ease;
-  will-change: transform;
-}
-
-.obra-item:hover .obra-thumb img {
-  transform: scale(1.03);
-  filter: brightness(0.92);
-}
-
-.item-dot {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  pointer-events: none;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-}
-
-/* ============================================================
-   MODAL
-   ============================================================ */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.98);
-  z-index: 300;
-  overflow-y: auto;
-}
-
-.modal-overlay.active { display: block; }
-
-.modal-inner {
+.obra-section {
+  background: #fff;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: var(--header-h);
+  margin-top: var(--header-h);
 }
 
-.modal-img-wrap {
+.obra-controls {
   position: sticky;
   top: var(--header-h);
-  height: calc(100vh - var(--header-h));
-  overflow: hidden;
-  background: transparent;
+  z-index: 100;
+  height: var(--controls-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+/* Category tabs */
+.cat-nav {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.cat-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 18px;
+  height: 100%;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -1px;
+}
+
+.cat-btn.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.cat-btn:not(.active):hover { color: #444; }
+
+/* Right side of controls */
+.obra-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* Availability filter */
+.avail-filter {
+  display: flex;
+}
+
+.avail-btn {
+  background: none;
+  border: 1px solid var(--border);
+  font-family: var(--font);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 5px 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: -1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s;
+}
+
+.avail-btn:first-child { border-radius: 1px 0 0 1px; margin-left: 0; }
+.avail-btn:last-child  { border-radius: 0 1px 1px 0; }
+
+.avail-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  z-index: 1;
+  position: relative;
+}
+
+.avail-btn-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* View toggle */
+.view-toggle {
+  display: flex;
+  gap: 5px;
+}
+
+.view-btn {
+  background: none;
+  border: 1px solid var(--border);
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 40px 72px;
+  cursor: pointer;
+  color: var(--muted);
+  border-radius: 2px;
+  transition: all 0.18s;
+  padding: 0;
 }
 
-.modal-img-placeholder {
+.view-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.view-btn:not(.active):hover {
+  color: var(--ink);
+  border-color: #bbb;
+}
+
+/* Mobile filter toggle button — hidden on desktop */
+.mobile-filter-btn {
+  display: none;
+}
+
+/* Mobile secondary menu — hidden by default */
+.controls-secondary {
+  display: none;
+}
+
+/* ============================================================
+   OBRA — SLIDESHOW VIEW
+   ============================================================ */
+.slide-view {
+  display: flex;
+  height: calc(100vh - var(--header-h) - var(--controls-h));
+  overflow: hidden;
+}
+
+/* Left: image area */
+.slide-area {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 72px;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.slide-img-wrap {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-.modal-img-placeholder img {
+.slide-img-wrap img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transition: opacity 0.35s ease;
 }
 
-.modal-info {
-  padding: 80px 64px 80px 56px;
+/* Main obra navigation arrows */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 16px 20px;
+  opacity: 0.15;
+  transition: opacity 0.2s;
+  z-index: 10;
+  font-family: var(--font);
+  line-height: 1;
+}
+
+.slide-arrow:hover { opacity: 0.7; }
+.slide-prev-obra { left: 0; }
+.slide-next-obra { right: 0; }
+
+/* Sub-image nav (multi-image obras like instalación) */
+.slide-sub-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+}
+
+.slide-sub-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 0 2px;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+
+.slide-sub-btn:hover { opacity: 1; }
+
+.slide-sub-counter {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Right: info panel */
+.slide-info {
+  width: 340px;
+  flex-shrink: 0;
+  padding: 56px 52px 72px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 12px;
-  min-height: calc(100vh - var(--header-h));
-  background: transparent;
+  gap: 10px;
+  overflow-y: auto;
 }
 
-.modal-title {
-  font-family: var(--font);
-  font-size: 24px;
+.slide-counter {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.slide-title {
+  font-size: 21px;
   font-weight: 300;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.3;
-  margin-bottom: 8px;
 }
 
-.modal-meta {
+.slide-meta {
   font-size: 11px;
   color: var(--muted);
-  letter-spacing: 0.08em;
-  line-height: 2.2;
-  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 2.1;
 }
 
-.modal-meta span { display: block; }
+.slide-meta span { display: block; }
 
-.modal-serie-def {
-  font-size: 12px;
-  color: #555;
-  line-height: 1.7;
+.slide-def {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.75;
   font-style: italic;
+}
+
+.slide-price {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
   margin-top: 4px;
 }
 
-.modal-price {
-  font-family: var(--font);
-  font-size: 14px;
-  margin-top: 8px;
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.modal-nota {
+.slide-nota {
   font-size: 11px;
   color: var(--muted);
   line-height: 1.7;
-  margin-top: 2px;
 }
 
-.modal-avail {
+.slide-avail {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  font-size: 9px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-top: 8px;
   font-weight: 500;
+  color: var(--ink);
+  margin-top: 10px;
 }
 
-.modal-avail-dot {
+/* Availability dots — shared */
+.avail-dot, .grid-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -318,60 +403,87 @@ a { color: inherit; text-decoration: none; }
 .dot-red    { background: #ef4444; }
 .dot-yellow { background: #f59e0b; }
 
-.modal-img-nav {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: rgba(255,255,255,0.9);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  padding: 6px 14px;
+/* ============================================================
+   OBRA — GRID VIEW
+   ============================================================ */
+.grid-view {
+  padding: 24px 32px 64px;
 }
 
-.modal-img-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
+.obra-grid {
+  columns: 4;
+  column-gap: 16px;
+}
+
+.grid-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
   cursor: pointer;
-  color: var(--ink);
-  line-height: 1;
-  padding: 0 4px;
-  transition: opacity 0.2s;
 }
 
-.modal-img-btn:hover { opacity: 0.4; }
+.grid-img-wrap {
+  width: 100%;
+  background: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+}
 
-.modal-img-counter {
+.grid-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.grid-item:hover .grid-img-wrap img {
+  transform: scale(1.03);
+}
+
+.grid-dot {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  pointer-events: none;
+}
+
+.grid-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.grid-title {
   font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  min-width: 36px;
-  text-align: center;
-}
-
-.modal-close {
-  position: fixed;
-  top: 20px;
-  right: 40px;
-  font-size: 11px;
-  font-family: var(--font);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink);
-  cursor: pointer;
-  z-index: 400;
-  background: none;
-  border: none;
-  padding: 8px;
-  font-weight: 600;
-  transition: opacity 0.3s ease;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.modal-close:hover { opacity: 0.5; }
+.grid-dims {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+/* ============================================================
+   OBRA — EMPTY STATE
+   ============================================================ */
+.obra-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* ============================================================
    ARTISTA
@@ -379,7 +491,7 @@ a { color: inherit; text-decoration: none; }
 .artista-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: #ffffff;
+  background: #fff;
   border-top: 1px solid var(--border);
 }
 
@@ -400,7 +512,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 .artista-name {
-  font-family: var(--font);
   font-size: 36px;
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -420,9 +531,8 @@ a { color: inherit; text-decoration: none; }
 .artista-bio {
   font-size: 13px;
   color: #444;
-  line-height: 1.8;
+  line-height: 1.85;
   max-width: 500px;
-  text-align: justify;
 }
 
 .artista-block-title {
@@ -430,7 +540,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
@@ -438,7 +548,7 @@ a { color: inherit; text-decoration: none; }
 .artista-block li {
   font-size: 13px;
   color: #222;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .artista-block ul { list-style: none; }
@@ -447,9 +557,9 @@ a { color: inherit; text-decoration: none; }
    FOOTER
    ============================================================ */
 .footer {
-  background: #ffffff;
+  background: #fff;
   border-top: 1px solid var(--border);
-  padding: 80px 80px 40px;
+  padding: 72px 80px 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: end;
@@ -469,70 +579,195 @@ a { color: inherit; text-decoration: none; }
 .footer-col a {
   font-size: 12px;
   color: #222;
-  line-height: 2.2;
+  line-height: 2.1;
   display: block;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s;
 }
 
-.footer-col a:hover { opacity: 0.5; }
+.footer-col a:hover { opacity: 0.45; }
 
 .footer-copy {
   grid-column: 1 / -1;
   font-size: 10px;
   color: var(--muted);
   letter-spacing: 0.1em;
-  padding-top: 40px;
+  padding-top: 32px;
   border-top: 1px solid var(--border);
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1024px) {
-  .artista-left, .artista-right { padding: 80px 40px; }
-  .footer { padding: 60px 40px 40px; }
+
+/* ── Large desktop (> 1600px) ─── */
+@media (min-width: 1600px) {
+  .obra-grid { columns: 5; }
+  .slide-info { width: 380px; }
 }
 
+/* ── Medium desktop (≤ 1280px) ── */
+@media (max-width: 1280px) {
+  .obra-grid { columns: 3; }
+  .slide-info { width: 300px; padding: 48px 36px 64px; }
+}
+
+/* ── Tablet (≤ 1024px) ─────────── */
+@media (max-width: 1024px) {
+  .obra-grid { columns: 3; }
+  .artista-left, .artista-right { padding: 80px 40px; }
+  .footer { padding: 60px 40px 40px; }
+  .slide-area { padding: 40px 56px; }
+}
+
+/* ── Mobile (≤ 768px) ──────────── */
 @media (max-width: 768px) {
-  .header { padding: 0 24px; }
-  
-  .hero-title {
-    bottom: 32px;
-    left: 24px;
-    right: 24px;
-    font-size: 36px;
+  :root {
+    --controls-h: 44px;
   }
 
-  .modal-inner { grid-template-columns: 1fr; }
-  .modal-img-wrap {
-    position: relative;
-    top: 0;
+  .header { padding: 0 16px; }
+
+  /* Controls: single row with cat-nav + filter button */
+  .obra-controls {
+    height: var(--controls-h);
+    padding: 0;
+    gap: 0;
+  }
+
+  .cat-nav {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cat-nav::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    height: 44px;
+    padding: 0 12px;
+    font-size: 9px;
+  }
+
+  /* Hide desktop right controls */
+  .obra-controls-right { display: none; }
+
+  /* Show mobile filter button */
+  .mobile-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    border-left: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .mobile-filter-btn.active {
+    color: var(--ink);
+    background: #f5f5f5;
+  }
+
+  /* Secondary menu panel */
+  .controls-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    height: 0;
+    overflow: hidden;
+    background: #fafafa;
+    border-bottom: 0px solid var(--border);
+    transition: height 0.25s ease, border-bottom-width 0.25s ease;
+  }
+
+  .controls-secondary.open {
+    height: 48px;
+    border-bottom-width: 1px;
+  }
+
+  .controls-secondary .avail-filter { display: flex; }
+  .controls-secondary .avail-btn { font-size: 9px; padding: 5px 10px; }
+
+  /* Slideshow: stacked */
+  .slide-view {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100svh - var(--header-h) - var(--controls-h));
+  }
+
+  .slide-area {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
     height: 65vw;
-    padding: 20px;
-  }
-  .modal-info {
-    padding: 40px 24px 80px;
-    min-height: auto;
+    min-height: 220px;
+    padding: 16px 44px;
+    flex-shrink: 0;
   }
 
+  .slide-arrow { font-size: 16px; padding: 10px 12px; }
+
+  .slide-info {
+    width: 100%;
+    padding: 28px 20px 44px;
+    justify-content: flex-start;
+  }
+
+  .slide-counter { margin-bottom: 10px; }
+  .slide-title { font-size: 17px; }
+
+
+  /* Grid: 2 columns masonry */
+  .obra-grid {
+    columns: 2;
+    column-gap: 10px;
+  }
+
+  .grid-item { margin-bottom: 10px; }
+
+  .grid-view { padding: 14px 14px 56px; }
+
+  .grid-title { font-size: 9px; }
+  .grid-dims  { font-size: 9px; }
+
+  /* Artista */
   .artista-section { grid-template-columns: 1fr; }
+
   .artista-left {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 80px 24px;
+    padding: 64px 20px;
   }
-  .artista-right { padding: 80px 24px; }
-  .footer { 
-    grid-template-columns: 1fr 1fr; 
-    padding: 60px 24px 40px;
+
+  .artista-right { padding: 64px 20px; }
+
+  /* Footer */
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 48px 20px 36px;
   }
-  .modal-close { right: 24px; }
 }
 
+/* ── Small mobile (≤ 480px) ─────── */
 @media (max-width: 480px) {
-  .hero-title { font-size: 32px; }
   .artista-name { font-size: 28px; }
-  .footer { grid-template-columns: 1fr; gap: 32px; }
-  .footer-copy { grid-column: 1; }
+
+  .obra-grid { columns: 2; column-gap: 8px; }
+  .grid-item { margin-bottom: 8px; }
+  .grid-view { padding: 10px 10px 48px; }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
