@@ -625,8 +625,9 @@ slideView.addEventListener('touchstart', e => {
 slideView.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - _tx;
   const dy = e.changedTouches[0].clientY - _ty;
-  if (Math.abs(dy) > Math.abs(dx) && dy > 72) { setView('grid'); return; }
-  if (Math.abs(dx) > 48) goObra(dx < 0 ? 1 : -1);
+  if (Math.abs(dy) > Math.abs(dx)) return;               // ignore vertical
+  if (dx > window.innerWidth * 0.55) { setView('grid'); return; } // long →  = back to grid
+  if (Math.abs(dx) > 48) goObra(dx < 0 ? 1 : -1);       // short ←→ = entre obras
 }, { passive: true });
 
 /* ── Init ─────────────────────────────────────────────────── */
