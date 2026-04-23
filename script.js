@@ -519,7 +519,7 @@ function setView(v) {
     b.classList.toggle('active', b.dataset.view === v)
   );
   if (controlsSecondary) { controlsSecondary.classList.remove('open'); mobileFilterBtn.classList.remove('active'); }
-  if (v === 'slide') renderSlide();
+  if (v === 'slide') { window.scrollTo({ top: 0, behavior: 'instant' }); renderSlide(); }
   else renderGrid();
 }
 
