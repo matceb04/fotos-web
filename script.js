@@ -541,6 +541,23 @@ function goSub(delta) {
   renderSlide();
 }
 
+/* ── Hamburger menu ───────────────────────────────────────── */
+(function () {
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('mobile-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  });
+  nav.querySelectorAll('.mobile-nav-link').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+})();
+
 /* ── Controls: category ───────────────────────────────────── */
 document.getElementById('cat-nav').addEventListener('click', e => {
   const btn = e.target.closest('.cat-btn');
