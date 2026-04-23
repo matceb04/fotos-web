@@ -328,20 +328,21 @@ a { color: inherit; text-decoration: none; }
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: var(--bg-controls);
-  border: 1px solid var(--border);
-  padding: 5px 14px;
+  gap: 10px;
+  background: var(--ink);
+  border: none;
+  padding: 7px 16px;
+  white-space: nowrap;
 }
 
 .slide-sub-btn {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  color: var(--ink);
+  color: var(--bg);
   padding: 0 2px;
-  opacity: 0.35;
+  opacity: 0.7;
   transition: opacity 0.2s;
   line-height: 1;
 }
@@ -349,11 +350,12 @@ a { color: inherit; text-decoration: none; }
 .slide-sub-btn:hover { opacity: 1; }
 
 .slide-sub-counter {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--bg);
   min-width: 36px;
   text-align: center;
+  font-weight: 500;
 }
 
 /* Right: info panel */
@@ -746,6 +748,11 @@ a { color: inherit; text-decoration: none; }
   }
 
   .cat-nav::-webkit-scrollbar { display: none; }
+
+  .cat-nav {
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
 
   .cat-btn {
     height: 44px;
