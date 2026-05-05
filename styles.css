@@ -136,7 +136,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #111;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
 }
 
 .hero-bg {
@@ -185,26 +185,6 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 44px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.45);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: heroScrollBounce 2.2s ease-in-out infinite;
-  transition: color 0.25s;
-}
-
-.hero-scroll:hover { color: rgba(255, 255, 255, 0.9); }
-
-@keyframes heroScrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(8px); }
-}
 
 /* ============================================================
    OBRA — CONTROLS BAR
@@ -363,6 +343,26 @@ a { color: inherit; text-decoration: none; }
   height: calc(100vh - var(--header-h) - var(--controls-h));
   overflow: hidden;
 }
+
+/* Close button — returns to grid */
+.slide-close {
+  position: absolute;
+  top: 14px;
+  left: 40px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 200;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  z-index: 20;
+  transition: color 0.2s;
+  font-family: var(--font);
+}
+
+.slide-close:hover { color: var(--ink); }
 
 /* Left: image area */
 .slide-area {
@@ -991,6 +991,8 @@ a { color: inherit; text-decoration: none; }
 
   .slide-counter { margin-bottom: 10px; }
   .slide-title { font-size: 17px; }
+
+  .slide-close { top: 10px; left: 16px; font-size: 18px; }
 
   /* Grid: 2 columns masonry */
   .obra-grid {

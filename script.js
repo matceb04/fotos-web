@@ -665,6 +665,9 @@ mobileFilterBtn.addEventListener('click', () => {
   mobileFilterBtn.classList.toggle('active', open);
 });
 
+/* ── Slide close button (back to grid) ────────────────────── */
+document.getElementById('slide-close').addEventListener('click', () => setView('grid'));
+
 /* ── Slide navigation buttons ─────────────────────────────── */
 document.getElementById('slide-prev-obra').addEventListener('click', () => goObra(-1));
 document.getElementById('slide-next-obra').addEventListener('click', () => goObra(1));
