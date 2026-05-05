@@ -371,6 +371,67 @@ function getFiltered() {
   );
 }
 
+/* ══════════════════════════════════════════════════════════════
+   HERO — random artwork background
+   ══════════════════════════════════════════════════════════════ */
+(function initHero() {
+  const bg = document.getElementById('hero-bg');
+  if (!bg) return;
+  const featured = [
+    'LOU.jpg',
+    '7 EN GUERRA.jpg',
+    'UMBRAL.jpg',
+    'CALACAZUL 2 OLVERA.jpg',
+    'MURAL EKTA CALACA 25.jpg',
+    'INSTALACIÓN MURCIÉLAGOS 5.jpg'
+  ];
+  const pick = featured[Math.floor(Math.random() * featured.length)];
+  const img  = new Image();
+  img.onload = () => {
+    bg.style.backgroundImage = `url('${encodeURI(pick)}')`;
+    bg.classList.add('loaded');
+  };
+  img.src = encodeURI(pick);
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER — hide over hero, reveal on scroll
+   ══════════════════════════════════════════════════════════════ */
+(function initHeaderScroll() {
+  const header = document.getElementById('main-header');
+  const hero   = document.getElementById('hero');
+  if (!hero) { header.classList.add('visible'); return; }
+  const check = () =>
+    header.classList.toggle('visible', window.scrollY > hero.offsetHeight * 0.7);
+  window.addEventListener('scroll', check, { passive: true });
+  requestAnimationFrame(check);
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHTBOX
+   ══════════════════════════════════════════════════════════════ */
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+document.getElementById('lightbox-inner').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 /* ── DOM refs ─────────────────────────────────────────────── */
 const slideView    = document.getElementById('slide-view');
 const gridView     = document.getElementById('grid-view');
@@ -420,6 +481,7 @@ function renderSlide() {
     slideImgWrap.appendChild(img);
     img.onload = () => { img.style.opacity = '1'; };
     img.src = encodeURI(imgs[gSub]);
+    img.addEventListener('click', () => openLightbox(encodeURI(imgs[gSub])));
   }
 
   /* counter */

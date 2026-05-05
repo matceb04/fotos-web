@@ -3,27 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miguel Costemalle Carrandi</title>
+  <title>Miguel Costemalle Carrandi — Artista Visual</title>
+
+  <meta name="description" content="Portafolio oficial de Miguel Costemalle Carrandi, artista visual mexicano egresado de NABA Milán. Pintura al óleo sobre lino, escultura en acero, grabado y dibujo al carbón." />
+  <meta name="keywords" content="Miguel Costemalle Carrandi, Costemalle artista, artista visual mexicano, pintura óleo lino, escultura acero bronce, grabado, dibujo carbón, arte contemporáneo México, NABA Milán" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://costemallecarrandi.github.io/costemallecarrandi/" />
+  <link rel="sitemap" type="application/xml" href="/costemallecarrandi/sitemap.xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Miguel Costemalle Carrandi — Artista Visual" />
+  <meta property="og:description" content="Portafolio de pintura, escultura, grabado y dibujo. Ciudad de México / Milán." />
+  <meta property="og:url" content="https://costemallecarrandi.github.io/costemallecarrandi/" />
+  <meta property="og:image" content="https://costemallecarrandi.github.io/costemallecarrandi/LOU.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:alt" content="LOU — Miguel Costemalle Carrandi, acrílico y óleo sobre lino, 200×300 cm" />
+  <meta property="profile:first_name" content="Miguel" />
+  <meta property="profile:last_name" content="Costemalle Carrandi" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Miguel Costemalle Carrandi — Artista Visual" />
+  <meta name="twitter:description" content="Portafolio de pintura, escultura, grabado y dibujo. Ciudad de México / Milán." />
+  <meta name="twitter:image" content="https://costemallecarrandi.github.io/costemallecarrandi/LOU.jpg" />
+  <meta name="twitter:creator" content="@costemallecarrandi" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Miguel Costemalle Carrandi",
+      "url": "https://costemallecarrandi.github.io/costemallecarrandi/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Miguel Costemalle Carrandi",
+      "jobTitle": "Artista visual",
+      "url": "https://costemallecarrandi.github.io/costemallecarrandi/",
+      "sameAs": ["https://instagram.com/costemallecarrandi"],
+      "nationality": { "@type": "Country", "name": "Mexico" },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "NABA — Nuova Accademia di Belle Arti",
+        "address": { "@type": "PostalAddress", "addressLocality": "Milán", "addressCountry": "IT" }
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Artista visual",
+        "occupationLocation": [
+          { "@type": "City", "name": "Ciudad de México" },
+          { "@type": "City", "name": "Milán" }
+        ]
+      },
+      "knowsAbout": ["Pintura al óleo", "Escultura en acero", "Grabado", "Dibujo al carbón", "Instalación artística"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "Miguel Costemalle Carrandi — Portafolio",
+      "url": "https://costemallecarrandi.github.io/costemallecarrandi/",
+      "mainEntity": { "@type": "Person", "name": "Miguel Costemalle Carrandi" }
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://api.github.com" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- ── HEADER ────────────────────────────────────────────── -->
   <header class="header" id="main-header">
-    <a href="#" class="header-name">Miguel Costemalle Carrandi</a>
     <nav class="header-nav">
-      <a href="#obra">obra</a>
-      <a href="#artista">artista</a>
-      <a href="#contacto">contacto</a>
+      <a href="#obra">Obra</a>
+      <a href="#artista">Artista</a>
+      <a href="#contacto">Contacto</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#" class="header-name">Miguel Costemalle Carrandi</a>
+    <div class="header-right">
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
+
+  <!-- Mobile nav panel -->
   <div class="mobile-nav" id="mobile-nav">
     <a href="#obra" class="mobile-nav-link">Obra</a>
     <a href="#artista" class="mobile-nav-link">Artista</a>
     <a href="#contacto" class="mobile-nav-link">Contacto</a>
   </div>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-role">Artista visual</p>
+      <h1 class="hero-name">Miguel<br>Costemalle<br>Carrandi</h1>
+    </div>
+    <a href="#obra" class="hero-scroll" aria-label="Ver obra">
+      <svg width="18" height="28" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="9" y1="0" x2="9" y2="22" stroke="white" stroke-width="1.2"/>
+        <polyline points="2,15 9,22 16,15" stroke="white" stroke-width="1.2" fill="none"/>
+      </svg>
+    </a>
+  </section>
 
   <!-- ── OBRA ─────────────────────────────────────────────── -->
   <section class="obra-section" id="obra">
@@ -219,6 +308,14 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ── LIGHTBOX ───────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">×</button>
+    <div class="lightbox-inner" id="lightbox-inner">
+      <img class="lightbox-img" id="lightbox-img" alt="" />
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
